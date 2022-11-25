@@ -20,6 +20,7 @@ export default function Game() {
     setComputerNumber(num);
     setUserNumber(0);
     setShowResult(false);
+    setChance(3);
   };
 
   const handleWinner = () => {
@@ -36,7 +37,11 @@ export default function Game() {
       setWinner(false);
     }
 
-    setChance((c) => c - 1);
+    if (chance === 0) {
+      setChance(3);
+    } else {
+      setChance((c) => c - 1);
+    }
   };
 
   return (
@@ -57,15 +62,20 @@ export default function Game() {
           Guess
         </button>
       </div>
-      {showResult ? (
-        <Result
-          user={userNumber}
-          computer={computerNumber}
-          winner={winner}
-          bigNum={bigNum}
-          chance={chance}
-        />
-      ) : null}
+      <div>
+        {chance === 3 ? (
+          <p className='initial-chance'>You have {chance} chances.</p>
+        ) : null}
+        {showResult ? (
+          <Result
+            user={userNumber}
+            computer={computerNumber}
+            winner={winner}
+            bigNum={bigNum}
+            chance={chance}
+          />
+        ) : null}
+      </div>
 
       <button className='restart-button' onClick={handleStart}>
         Restart

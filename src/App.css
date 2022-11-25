@@ -60,6 +60,7 @@
   margin-bottom: 5%;
   width: 50%;
   margin-left: 25%;
+  height: auto;
 }
 
 .result {
@@ -74,4 +75,9 @@
 
 .lost {
   font-size: 30px;
+}
+
+.initial-chance {
+  font-size: 25px;
+  font-weight: 600;
 }
