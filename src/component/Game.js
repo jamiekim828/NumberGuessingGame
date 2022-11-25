@@ -11,10 +11,12 @@ export default function Game() {
   const [showResult, setShowResult] = useState(false);
   const [chance, setChance] = useState(3);
 
+  // function for input
   const handleUserInput = (e) => {
     setUserNumber(e.target.value);
   };
 
+  // start button on click
   const handleStart = () => {
     const num = Math.floor(Math.random() * 100);
     setComputerNumber(num);
@@ -23,6 +25,7 @@ export default function Game() {
     setChance(3);
   };
 
+  // guess button on click
   const handleWinner = () => {
     setShowResult(true);
 
@@ -68,7 +71,6 @@ export default function Game() {
         ) : null}
         {showResult ? (
           <Result
-            user={userNumber}
             computer={computerNumber}
             winner={winner}
             bigNum={bigNum}
@@ -76,7 +78,6 @@ export default function Game() {
           />
         ) : null}
       </div>
-
       <button className='restart-button' onClick={handleStart}>
         Restart
       </button>

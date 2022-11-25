@@ -1,7 +1,6 @@
 import React from 'react';
 
-export default function Result({ user, computer, winner, bigNum, chance }) {
-  console.log(user, computer, winner, bigNum, chance);
+export default function Result({ computer, winner, bigNum, chance }) {
   return (
     <div className='result-div'>
       <div className='result'>
