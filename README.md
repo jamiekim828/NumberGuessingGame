@@ -11,6 +11,6 @@ When the page renders , generate a random number from 1 to 10. After user insert
 
 Bonus task: the user can only have 3 guesses (3 times)
 
-## Screenshot
+## Demo
 
 ![demo gif](assets/demo.gif)
