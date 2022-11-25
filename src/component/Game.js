@@ -12,15 +12,17 @@ export default function Game() {
 
   const handleUserInput = (e) => {
     setUserNumber(e.target.value);
-    setShowResult(true);
   };
 
   const handleStart = () => {
     const num = Math.floor(Math.random() * 100);
     setComputerNumber(num);
+    setUserNumber(0);
+    setShowResult(false);
   };
 
   const handleWinner = () => {
+    setShowResult(true);
     if (Number(userNumber) === computerNumber) {
       setWinner(true);
     } else if (Number(userNumber) > computerNumber) {
