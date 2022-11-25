@@ -13,4 +13,4 @@ Bonus task: the user can only have 3 guesses (3 times)
 
 ## Screenshot
 
-![video](./src/screenshot/demo.mov)
+![demo gif](assets/demo.gif)
