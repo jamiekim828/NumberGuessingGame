@@ -27,6 +27,7 @@ export default function Game() {
 
     if (Number(userNumber) === computerNumber) {
       setWinner(true);
+      setChance(4);
     } else if (Number(userNumber) > computerNumber) {
       setBigNum(true);
       setWinner(false);
@@ -41,12 +42,20 @@ export default function Game() {
   return (
     <div className='game'>
       <h1>Number Guessing Game</h1>
-      <h2>I am thinking of a number between 1-100.</h2>
+      <h2>I am thinking of a number between 1-100</h2>
       <h2>Can you guess?</h2>
-      <button onClick={handleStart}>Start the game</button>
-      <div>
-        <input value={userNumber} onChange={handleUserInput} />
-        <button onClick={handleWinner}>Guess</button>
+      <button className='start-button' onClick={handleStart}>
+        Start the game
+      </button>
+      <div className='input-container'>
+        <input
+          className='input'
+          value={userNumber}
+          onChange={handleUserInput}
+        />
+        <button className='guess-button' onClick={handleWinner}>
+          Guess
+        </button>
       </div>
       {showResult ? (
         <Result
@@ -58,7 +67,9 @@ export default function Game() {
         />
       ) : null}
 
-      <button onClick={handleStart}>Restart</button>
+      <button className='restart-button' onClick={handleStart}>
+        Restart
+      </button>
     </div>
   );
 }
