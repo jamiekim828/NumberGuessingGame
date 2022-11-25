@@ -1,4 +1,6 @@
-# Guessing game - React hook practice using useState
+# Guessing game - React hook
+
+This game is to practice useState and it is optional
 
 ## How to run the project
 
