@@ -9,6 +9,7 @@ export default function Game() {
   const [winner, setWinner] = useState();
   const [bigNum, setBigNum] = useState();
   const [showResult, setShowResult] = useState(false);
+  const [chance, setChance] = useState(3);
 
   const handleUserInput = (e) => {
     setUserNumber(e.target.value);
@@ -23,6 +24,7 @@ export default function Game() {
 
   const handleWinner = () => {
     setShowResult(true);
+
     if (Number(userNumber) === computerNumber) {
       setWinner(true);
     } else if (Number(userNumber) > computerNumber) {
@@ -32,6 +34,8 @@ export default function Game() {
       setBigNum(false);
       setWinner(false);
     }
+
+    setChance((c) => c - 1);
   };
 
   return (
@@ -39,7 +43,7 @@ export default function Game() {
       <h1>Number Guessing Game</h1>
       <h2>I am thinking of a number between 1-100.</h2>
       <h2>Can you guess?</h2>
-      <button onClick={handleStart}>Start</button>
+      <button onClick={handleStart}>Start the game</button>
       <div>
         <input value={userNumber} onChange={handleUserInput} />
         <button onClick={handleWinner}>Guess</button>
@@ -50,6 +54,7 @@ export default function Game() {
           computer={computerNumber}
           winner={winner}
           bigNum={bigNum}
+          chance={chance}
         />
       ) : null}
 
