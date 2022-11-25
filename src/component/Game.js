@@ -3,9 +3,13 @@ import { useState } from 'react';
 import Result from './Result';
 
 export default function Game() {
+  // get random number for computer
+  const randomNumber = () => {
+    return Math.floor(Math.random() * 100);
+  };
   // state
   const [userNumber, setUserNumber] = useState(0);
-  const [computerNumber, setComputerNumber] = useState();
+  const [computerNumber, setComputerNumber] = useState(randomNumber());
   const [winner, setWinner] = useState();
   const [bigNum, setBigNum] = useState();
   const [showResult, setShowResult] = useState(false);
@@ -18,8 +22,8 @@ export default function Game() {
 
   // start button on click
   const handleStart = () => {
-    const num = Math.floor(Math.random() * 100);
-    setComputerNumber(num);
+    // const num = Math.floor(Math.random() * 100);
+    setComputerNumber(randomNumber());
     setUserNumber(0);
     setShowResult(false);
     setChance(3);
@@ -52,9 +56,6 @@ export default function Game() {
       <h1>Number Guessing Game</h1>
       <h2>I am thinking of a number between 1-100</h2>
       <h2>Can you guess?</h2>
-      <button className='start-button' onClick={handleStart}>
-        Start the game
-      </button>
       <div className='input-container'>
         <input
           className='input'
@@ -66,7 +67,7 @@ export default function Game() {
         </button>
       </div>
       <div>
-        {chance === 3 ? (
+        {!winner && chance === 3 ? (
           <p className='initial-chance'>You have {chance} chances.</p>
         ) : null}
         {showResult ? (
