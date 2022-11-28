@@ -54,7 +54,7 @@ export default function Game() {
   return (
     <div className='game'>
       <h1>Number Guessing Game</h1>
-      <h2>I am thinking of a number between 1-100</h2>
+      <h2>I am thinking of a number between 0-100</h2>
       <h2>Can you guess?</h2>
       <div className='input-container'>
         <input
